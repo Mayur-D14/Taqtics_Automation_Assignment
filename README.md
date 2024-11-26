@@ -3,7 +3,7 @@
 ## Project Description
 This repository contains automation scripts for:
 - Website login functionality using Robot Framework and Selenium.
-- API testing of `v1https://landmark.taqtics.co/v1/external/generateAuthToken` endpoint using Robot Framework and RequestsLibrary.
+- API testing of `https://landmark.taqtics.co/v1/external/generateAuthToken` endpoint using Robot Framework and RequestsLibrary.
 
 ## Prerequisites
 - Python 3.x installed
