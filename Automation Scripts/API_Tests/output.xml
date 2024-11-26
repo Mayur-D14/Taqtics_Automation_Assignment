@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.7 on win32)" generated="2024-11-26T22:03:37.166337" rpa="false" schemaversion="5">
+<suite id="s1" name="API test" source="C:\Users\Mayur Dhangar\PycharmProjects\pythonProject\QA Task - Web Automation Testing\QA Automation Engineer role at Taqtics assignment\Automation Scripts\API_Tests\API_test.robot">
+<kw name="Create Session" owner="RequestsLibrary" type="SETUP">
+<msg time="2024-11-26T22:03:38.135698" level="INFO">Creating Session using : alias=APISession, url=https://landmark.taqtics.co, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<arg>APISession</arg>
+<arg>${BASE_URL}</arg>
+<arg>verify=true</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-11-26T22:03:38.135698" elapsed="0.000000"/>
+</kw>
+<test id="s1-t1" name="Generate Auth Token - Admin User" line="12">
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2024-11-26T22:03:38.855285" level="INFO">POST Request : url=https://landmark.taqtics.co/v1/external/generateAuthToken 
+ path_url=/v1/external/generateAuthToken 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '60'} 
+ body=b'{"email": "intern@taqtics.co", "password": "TestIntern@123"}' 
+ </msg>
+<msg time="2024-11-26T22:03:38.855285" level="INFO">POST Response : url=https://landmark.taqtics.co/v1/external/generateAuthToken 
+ status=200, reason=OK 
+ headers={'X-Powered-By': 'Express', 'X-RateLimit-Limit': '20', 'X-RateLimit-Remaining': '19', 'Date': 'Tue, 26 Nov 2024 16:33:29 GMT', 'X-RateLimit-Reset': '1732638859', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '436', 'ETag': 'W/"1b4-vRaC9qErHMK2ZA6cosmlSUWg7sY"', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImludGVybkB0YXF0aWNzLmNvIiwidXNlcklkIjoiNjc0MTQ1NmQyMWQ2ODI1Njk1NDk3ZjlkIiwibmFtZSI6IkludGVybiIsInJvbGUiOiJ1c2VyIiwiY29tcGFueUlkIjoibGFuZG1hcmsiLCJzdWJkb21haW4iOiJsYW5kbWFyay50YXF0aWNzLmNvIiwidXNlclJvbGUiOiJzdG9yZUVtcGxveWVlIiwib3NWZXJzaW9uIjoiIiwiaXBBZGRyZXNzIjoiMTAzLjE3Mi4xNTYuMzkiLCJpYXQiOjE3MzI2Mzg4MDksImV4cCI6MTczMjgxMTYwOX0.CgwCZ01Ifo5XggrCsF6ZevqZnl4x53-91PQtw60vgOs"} 
+ </msg>
+<msg time="2024-11-26T22:03:38.855285" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>APISession</arg>
+<arg>${API_ENDPOINT}</arg>
+<arg>json=${USER_CREDENTIALS}</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>expected_status=anything</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-11-26T22:03:38.135698" elapsed="0.719587"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-11-26T22:03:38.855285" level="INFO">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'int'&gt;</msg>
+<arg>200</arg>
+<arg>${response.status_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-11-26T22:03:38.855285" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${response.text}</arg>
+<arg>"token"</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-11-26T22:03:38.855285" elapsed="0.000000"/>
+</kw>
+<doc>Verify the token generation endpoint with non-admin user.</doc>
+<status status="PASS" start="2024-11-26T22:03:38.135698" elapsed="0.719587"/>
+</test>
+<test id="s1-t2" name="Generate Auth Token - Invalid Password" line="18">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-11-26T22:03:38.855285" level="INFO">${invalid_credentials} = {'email': 'intern@taqtics.co', 'password': 'WrongPassword123'}</msg>
+<var>${invalid_credentials}</var>
+<arg>email=intern@taqtics.co</arg>
+<arg>password=WrongPassword123</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-11-26T22:03:38.855285" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2024-11-26T22:03:39.143489" level="INFO">POST Request : url=https://landmark.taqtics.co/v1/external/generateAuthToken 
+ path_url=/v1/external/generateAuthToken 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '62'} 
+ body=b'{"email": "intern@taqtics.co", "password": "WrongPassword123"}' 
+ </msg>
+<msg time="2024-11-26T22:03:39.143489" level="INFO">POST Response : url=https://landmark.taqtics.co/v1/external/generateAuthToken 
+ status=401, reason=Unauthorized 
+ headers={'X-Powered-By': 'Express', 'X-RateLimit-Limit': '20', 'X-RateLimit-Remaining': '18', 'Date': 'Tue, 26 Nov 2024 16:33:29 GMT', 'X-RateLimit-Reset': '1732638859', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '34', 'ETag': 'W/"22-fzeLjt+7BDvY63yWDbGinFnynt4"', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"message":"Invalid Credentials!"} 
+ </msg>
+<msg time="2024-11-26T22:03:39.143489" level="INFO">${response} = &lt;Response [401]&gt;</msg>
+<var>${response}</var>
+<arg>APISession</arg>
+<arg>${API_ENDPOINT}</arg>
+<arg>json=${invalid_credentials}</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>expected_status=anything</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-11-26T22:03:38.855285" elapsed="0.288204"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-11-26T22:03:39.143489" level="INFO">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'int'&gt;</msg>
+<arg>401</arg>
+<arg>${response.status_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-11-26T22:03:39.143489" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${response.text}</arg>
+<arg>"Invalid Credentials!"</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-11-26T22:03:39.143489" elapsed="0.000000"/>
+</kw>
+<doc>Verify the token generation endpoint with invalid credentials.</doc>
+<status status="PASS" start="2024-11-26T22:03:38.855285" elapsed="0.288204"/>
+</test>
+<test id="s1-t3" name="Generate Auth Token - Empty Fields" line="25">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-11-26T22:03:39.143489" level="INFO">${empty_credentials} = {'username': '', 'password': ''}</msg>
+<var>${empty_credentials}</var>
+<arg>username=</arg>
+<arg>password=</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-11-26T22:03:39.143489" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2024-11-26T22:03:39.346315" level="INFO">POST Request : url=https://landmark.taqtics.co/v1/external/generateAuthToken 
+ path_url=/v1/external/generateAuthToken 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '32'} 
+ body=b'{"username": "", "password": ""}' 
+ </msg>
+<msg time="2024-11-26T22:03:39.346315" level="INFO">POST Response : url=https://landmark.taqtics.co/v1/external/generateAuthToken 
+ status=400, reason=Bad Request 
+ headers={'X-Powered-By': 'Express', 'X-RateLimit-Limit': '20', 'X-RateLimit-Remaining': '17', 'Date': 'Tue, 26 Nov 2024 16:33:29 GMT', 'X-RateLimit-Reset': '1732638859', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '33', 'ETag': 'W/"21-Z28v6t48nULy2khlS6LYDosuFYw"', 'Connection': 'keep-alive', 'Keep-Alive': 'timeout=5'} 
+ body={"error":"\"Email\" is required"} 
+ </msg>
+<msg time="2024-11-26T22:03:39.346315" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<var>${response}</var>
+<arg>APISession</arg>
+<arg>${API_ENDPOINT}</arg>
+<arg>json=${empty_credentials}</arg>
+<arg>headers=${HEADERS}</arg>
+<arg>expected_status=anything</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-11-26T22:03:39.143489" elapsed="0.202826"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2024-11-26T22:03:39.346315" level="INFO">Argument types are:
+&lt;class 'str'&gt;
+&lt;class 'int'&gt;</msg>
+<arg>400</arg>
+<arg>${response.status_code}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-11-26T22:03:39.346315" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${response.text}</arg>
+<arg>"\\"Email\\" is required"</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2024-11-26T22:03:39.346315" elapsed="0.000000"/>
+</kw>
+<doc>Verify the token generation endpoint with empty fields</doc>
+<status status="PASS" start="2024-11-26T22:03:39.143489" elapsed="0.202826"/>
+</test>
+<status status="PASS" start="2024-11-26T22:03:37.181967" elapsed="2.164348"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="API test">API test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
