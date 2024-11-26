@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.7 on win32)" generated="2024-11-26T23:35:20.379001" rpa="false" schemaversion="5">
+<suite id="s1" name="Login test" source="C:\Users\Mayur Dhangar\PycharmProjects\pythonProject\Taqtics Assignment\Automation Scripts\Login_tests\Login_test.robot">
+<kw name="Open Browser To Login Page" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:21.300204" level="INFO">Opening browser 'Chrome' to base url 'https://landmark.taqtics.co'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-26T23:35:21.300204" elapsed="11.550390"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-11-26T23:35:32.857362" elapsed="0.050879"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//label[@for=("email")]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-11-26T23:35:32.908241" elapsed="0.031869"/>
+</kw>
+<kw name="Set Screenshot Directory" owner="SeleniumLibrary">
+<arg>${SCREENSHOTS_DIR}</arg>
+<doc>Sets the directory for captured screenshots.</doc>
+<status status="PASS" start="2024-11-26T23:35:32.940110" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-11-26T23:35:21.300204" elapsed="11.639906"/>
+</kw>
+<test id="s1-t1" name="Validate Login" line="15">
+<kw name="Input Email and Password">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:32.940110" level="INFO">Typing text 'intern@taqtics.co' into text field 'xpath=//input[@id=("email")]'.</msg>
+<arg>xpath=//input[@id=("email")]</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-26T23:35:32.940110" elapsed="0.468669"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:33.408779" level="INFO">Typing text 'TestIntern@123' into text field 'xpath=//input[@id=("password")]'.</msg>
+<arg>xpath=//input[@id=("password")]</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-26T23:35:33.408779" elapsed="0.319240"/>
+</kw>
+<arg>${EMAIL}</arg>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2024-11-26T23:35:32.940110" elapsed="0.787909"/>
+</kw>
+<kw name="Click Login Button">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:33.730531" level="INFO">Clicking button 'xpath=//button[@type=("submit")]'.</msg>
+<arg>xpath=//button[@type=("submit")]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-26T23:35:33.730531" elapsed="0.313055"/>
+</kw>
+<status status="PASS" start="2024-11-26T23:35:33.728019" elapsed="0.315567"/>
+</kw>
+<kw name="Verify Successful Login">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//div[contains(@class, "dashboard_container")]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-11-26T23:35:34.043586" elapsed="0.658586"/>
+</kw>
+<status status="PASS" start="2024-11-26T23:35:34.043586" elapsed="0.658586"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:35.291502" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Screenshots/Valid_Login.png"&gt;&lt;img src="Screenshots/Valid_Login.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>Valid_Login.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-11-26T23:35:34.702172" elapsed="0.589330"/>
+</kw>
+<kw name="Click Logout Button">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:35.291502" level="INFO">Clicking element 'xpath=//span[@class='ant-dropdown-trigger']'.</msg>
+<arg>xpath=//span[@class='ant-dropdown-trigger']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-26T23:35:35.291502" elapsed="0.354174"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//span[normalize-space()='Logout']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-11-26T23:35:35.645676" elapsed="0.270759"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:35.916435" level="INFO">Clicking element 'xpath=//span[normalize-space()='Logout']'.</msg>
+<arg>xpath=//span[normalize-space()='Logout']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-26T23:35:35.916435" elapsed="0.655552"/>
+</kw>
+<status status="PASS" start="2024-11-26T23:35:35.291502" elapsed="1.280485"/>
+</kw>
+<doc>Test valid login scenario</doc>
+<status status="PASS" start="2024-11-26T23:35:32.940110" elapsed="3.631877"/>
+</test>
+<test id="s1-t2" name="Invalid Login - Incorrect Password" line="23">
+<kw name="Input Email and Password">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:36.571987" level="INFO">Typing text 'intern@taqtics.co' into text field 'xpath=//input[@id=("email")]'.</msg>
+<arg>xpath=//input[@id=("email")]</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-26T23:35:36.571987" elapsed="0.514135"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:37.086122" level="INFO">Typing text 'Password@123' into text field 'xpath=//input[@id=("password")]'.</msg>
+<arg>xpath=//input[@id=("password")]</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-26T23:35:37.086122" elapsed="0.238051"/>
+</kw>
+<arg>${EMAIL}</arg>
+<arg>Password@123</arg>
+<status status="PASS" start="2024-11-26T23:35:36.571987" elapsed="0.763924"/>
+</kw>
+<kw name="Click Login Button">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:37.336696" level="INFO">Clicking button 'xpath=//button[@type=("submit")]'.</msg>
+<arg>xpath=//button[@type=("submit")]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-26T23:35:37.336696" elapsed="0.239764"/>
+</kw>
+<status status="PASS" start="2024-11-26T23:35:37.336696" elapsed="0.239764"/>
+</kw>
+<kw name="Verify Login Failed">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//span[text()="Invalid Credentials!"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-11-26T23:35:37.576460" elapsed="0.451812"/>
+</kw>
+<status status="PASS" start="2024-11-26T23:35:37.576460" elapsed="0.451812"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:38.536098" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Screenshots/Incorrect_Password_Login.png"&gt;&lt;img src="Screenshots/Incorrect_Password_Login.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>Incorrect_Password_Login.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-11-26T23:35:38.035292" elapsed="0.500806"/>
+</kw>
+<doc>Test login with incorrect password</doc>
+<status status="PASS" start="2024-11-26T23:35:36.571987" elapsed="1.964111"/>
+</test>
+<test id="s1-t3" name="Invalid Login - Blank Email" line="30">
+<kw name="Input Email and Password">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:38.551581" level="INFO">Typing text '""' into text field 'xpath=//input[@id=("email")]'.</msg>
+<arg>xpath=//input[@id=("email")]</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-26T23:35:38.536098" elapsed="0.148278"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:38.684376" level="INFO">Typing text 'TestIntern@123' into text field 'xpath=//input[@id=("password")]'.</msg>
+<arg>xpath=//input[@id=("password")]</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-26T23:35:38.684376" elapsed="0.240982"/>
+</kw>
+<arg>""</arg>
+<arg>${PASSWORD}</arg>
+<status status="PASS" start="2024-11-26T23:35:38.536098" elapsed="0.389260"/>
+</kw>
+<kw name="Click Login Button">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:38.926363" level="INFO">Clicking button 'xpath=//button[@type=("submit")]'.</msg>
+<arg>xpath=//button[@type=("submit")]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-26T23:35:38.926363" elapsed="0.135395"/>
+</kw>
+<status status="PASS" start="2024-11-26T23:35:38.926363" elapsed="0.135395"/>
+</kw>
+<kw name="Verify Login Failed">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//span[text()="Invalid Credentials!"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-11-26T23:35:39.061758" elapsed="0.015421"/>
+</kw>
+<status status="PASS" start="2024-11-26T23:35:39.061758" elapsed="0.015421"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:39.605130" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Screenshots/Blank_Email_Login.png"&gt;&lt;img src="Screenshots/Blank_Email_Login.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>Blank_Email_Login.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-11-26T23:35:39.077179" elapsed="0.527951"/>
+</kw>
+<doc>Test login with blank email</doc>
+<status status="PASS" start="2024-11-26T23:35:38.536098" elapsed="1.069032"/>
+</test>
+<test id="s1-t4" name="Invalid Login - Blank Password" line="37">
+<kw name="Input Email and Password">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:39.611136" level="INFO">Typing text 'intern@taqtics.co' into text field 'xpath=//input[@id=("email")]'.</msg>
+<arg>xpath=//input[@id=("email")]</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-26T23:35:39.611136" elapsed="0.291930"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:39.905939" level="INFO">Typing text '""' into text field 'xpath=//input[@id=("password")]'.</msg>
+<arg>xpath=//input[@id=("password")]</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-26T23:35:39.905939" elapsed="0.135568"/>
+</kw>
+<arg>${EMAIL}</arg>
+<arg>""</arg>
+<status status="PASS" start="2024-11-26T23:35:39.611136" elapsed="0.430371"/>
+</kw>
+<kw name="Click Login Button">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:40.041507" level="INFO">Clicking button 'xpath=//button[@type=("submit")]'.</msg>
+<arg>xpath=//button[@type=("submit")]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-26T23:35:40.041507" elapsed="0.135199"/>
+</kw>
+<status status="PASS" start="2024-11-26T23:35:40.041507" elapsed="0.135199"/>
+</kw>
+<kw name="Verify Login Failed">
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//span[text()="Invalid Credentials!"]</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-11-26T23:35:40.183720" elapsed="0.010262"/>
+</kw>
+<status status="PASS" start="2024-11-26T23:35:40.176706" elapsed="0.017276"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-11-26T23:35:40.749132" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Screenshots/Blank_Password_Login.png"&gt;&lt;img src="Screenshots/Blank_Password_Login.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>Blank_Password_Login.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-11-26T23:35:40.193982" elapsed="0.555150"/>
+</kw>
+<doc>Test login with blank password</doc>
+<status status="PASS" start="2024-11-26T23:35:39.611136" elapsed="1.137996"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-26T23:35:40.749132" elapsed="2.374804"/>
+</kw>
+<status status="PASS" start="2024-11-26T23:35:20.379001" elapsed="22.744935"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Login test">Login test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
